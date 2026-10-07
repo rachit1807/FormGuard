@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormGuard</title>
+
+    <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>FormGuard</h1>
+        <p>Client-Side Form Validation</p>
+
+        <form id="registrationForm" novalidate>
+
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                >
+
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                >
+
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                >
+
+                <small class="error"></small>
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                    >
+
+                    <span
+                        class="toggle-password"
+                        data-target="password"
+                    >
+                        👁️
+                    </span>
+
+                </div>
+
+                <div class="strength-container">
+
+                    <div class="strength-bar">
+                        <div id="strengthFill"></div>
+                    </div>
+
+                    <span id="strengthText">
+                        Password Strength
+                    </span>
+
+                </div>
+
+                <div class="password-checklist">
+
+                    <h4>Password must contain:</h4>
+
+                    <ul>
+                        <li id="lengthCheck">❌ At least 8 characters</li>
+                        <li id="uppercaseCheck">❌ One uppercase letter</li>
+                        <li id="lowercaseCheck">❌ One lowercase letter</li>
+                        <li id="numberCheck">❌ One number</li>
+                        <li id="specialCheck">❌ One special character</li>
+                    </ul>
+
+                </div>
+
+                <small class="error"></small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                    >
+
+                    <span
+                        class="toggle-password"
+                        data-target="confirmPassword"
+                    >
+                        👁️
+                    </span>
+
+                </div>
+
+                <small class="error"></small>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="country">Country</label>
+
+                <select id="country" name="country">
+
+                    <option value="">
+                        Select Country
+                    </option>
+
+                    <option>India</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+
+                </select>
+
+                <small class="error"></small>
+
+            </div>
+
+            <button type="submit" id="submitBtn">
+
+                <span class="btn-text">
+                    Register
+                </span>
+
+                <span class="loader" style="display:none;"></span>
+
+            </button>
+
+        </form>
+
+        <!-- Loader -->
+
+        <div id="loader" class="loader-container">
+
+            <div class="loader"></div>
+
+            <p>Creating your account...</p>
+
+        </div>
+
+        <!-- Success Card -->
+
+        <div id="successCard" class="success-card">
+
+            <h2>Registration Successful 🎉</h2>
+
+            <p>
+                <strong>Name:</strong>
+                <span id="successName"></span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="successEmail"></span>
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                <span id="successPhone"></span>
+            </p>
+
+            <p>
+                <strong>Country:</strong>
+                <span id="successCountry"></span>
+            </p>
+
+            <p id="countdownText" class="countdown">
+                Returning to registration form in 5 seconds...
+            </p>
+
+            <button
+                type="button"
+                id="newRegistrationBtn"
+                class="secondary-btn"
+            >
+                Register Another User
+            </button>
+
+        </div>
+
+        <!-- View Users -->
+
+        <button
+            type="button"
+            id="viewUsersBtn"
+            class="secondary-btn"
+        >
+            View Registered Users
+        </button>
+
+        <div
+            id="usersSection"
+            style="display:none; margin-top:30px;"
+        >
+
+            <h2>Registered Users</h2>
+
+            <table id="usersTable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        </div>
+<footer class="footer">
+    <p>Developed by <strong>Rachit Tripathi</strong></p>
+    <p>CodeMore Full Stack Web Development Internship</p>
+</footer>
+    </div>
+
+    <script src="scripts/validation.js"></script>
+
+</body>
+</html>
