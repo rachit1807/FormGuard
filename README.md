@@ -61,16 +61,6 @@ https://rachit1807.github.io/FormGuard/
 ```
 
 
----
-
-# 📂 Repository
-
-```
-Coming Soon
-```
-
----
-
 # ✨ Features
 
 | Feature | Status |
