@@ -59,8 +59,7 @@ The project focuses on creating a clean user experience while following modern J
 > 🚀 GitHub Pages Link
 
 ```
-Coming Soon
-```
+https://rachit1807.github.io/FormGuard/
 
 ---
 
