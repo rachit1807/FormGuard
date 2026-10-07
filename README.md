@@ -293,77 +293,46 @@ J --> K[Enable Submission]
 ---
 
 # 🔐 Password Validation Workflow
-
 ```mermaid
 flowchart TD
+    A[Password Entered]
+    --> B{Minimum 8 Characters?}
 
-Password
+    B -- No --> X[Show Error]
+    B -- Yes --> C{Uppercase Present?}
 
-↓
+    C -- No --> X
+    C -- Yes --> D{Lowercase Present?}
 
-Minimum 8 Characters
+    D -- No --> X
+    D -- Yes --> E{Number Present?}
 
-↓
+    E -- No --> X
+    E -- Yes --> F{Special Character Present?}
 
-Uppercase Present?
+    F -- No --> X
+    F -- Yes --> G[Password Accepted]
 
-↓
-
-Lowercase Present?
-
-↓
-
-Number Present?
-
-↓
-
-Special Character Present?
-
-↓
-
-Password Strength Meter Updates
-
-↓
-
-Weak / Medium / Strong
+    X --> H[User Corrects Password]
+    H --> A
 ```
-
 ---
 
 # 💾 Local Storage Workflow
 
 ```mermaid
 flowchart TD
+    A[Submit Form]
+    --> B[Validate Input]
+    --> C[Create User Object]
+    --> D[Save to Local Storage]
+    --> E[Render Registered Users]
+    --> F{Delete User?}
 
-Submit Form
+    F -- Yes --> G[Remove from Local Storage]
+    G --> E
 
-↓
-
-Validate Data
-
-↓
-
-Save User Object
-
-↓
-
-Local Storage
-
-↓
-
-Render Registered Users
-
-↓
-
-Delete User
-
-↓
-
-Update Local Storage
-
-↓
-
-Re-render Table
+    F -- No --> H[End]
 ```
 
 ---
